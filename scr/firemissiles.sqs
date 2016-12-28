@@ -1,0 +1,53 @@
+; Init our local vars
+_array = _this select 0
+_weapon = _array select 1
+_ammoname = _array select 4
+_plane = _array select 0
+
+
+; Get the missile object
+_missobj = nearestobject[_plane, _ammoname]
+
+; Branch with respect to the weapon
+?(_weapon == "Kab1500"): goto "KABCheck"
+
+; Shouldn't get here.
+exit
+
+#KABCheck
+_count = _plane ammo "Kab1500Ammo"
+? (_count == 0) : goto "KabB_away"
+
+#KabB_away
+_plane setobjecttexture[3, ""]
+_missmove =0;
+goto "MoveMissile"
+
+#MoveMissile
+; Get the missile direction
+_missdir = direction _missobj
+
+; Get the height minus a little drop
+_zpos = (getpos _plane select 2) + .2
+
+; Move the missile in the horizontal plane 
+_xpos = ( (getpos _plane) select 0 ) - (_missmove * cos(_missdir))
+_ypos = ( (getpos _plane) select 1 ) + (_missmove * sin(_missdir))
+
+; Create an empty object
+_sensor = "EmptyDetector" createVehicle [0,0,0]
+
+; Place it directly under the plane in the horizontal 
+_sensor setpos [getpos _plane select 0, getpos _plane select 1]; 
+
+; The OFP engine puts the object on the land surface, so we can get the ground height
+_result = getpos _sensor select 2;
+
+; Bump the zpos upwards
+_zpos = _zpos - _result
+
+; And set the position
+_missobj setpos[_xpos, _ypos, _zpos]
+
+#Exit
+exit

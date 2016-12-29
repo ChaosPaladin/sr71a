@@ -171,50 +171,50 @@ class CfgVehicles
 
 		class Sounds {
 			class EngineLowOut {
-				sound[] = {"ca\sounds\Air\AV8\ext\ext-jetair-engine-low1", db8, 1.0, 1200};
+				sound[] = {"SU_33_Flanker_D\sounds\ext-jetair-engine-low1", db8, 1.0, 1200};
 				frequency = "1.0 min (rpm + 0.5)";
 				volume = "engineOn*camPos*(rpm factor[0.85, 0])";
 			};
 
 			class EngineHighOut {
-				sound[] = {"ca\sounds\Air\AV8\ext\ext-jetair-engine-high3", db8, 1.3, 1800};
+				sound[] = {"SU_33_Flanker_D\sounds\ext-jetair-engine-high3", db8, 1.3, 1800};
 				frequency = "1";
 				volume = "engineOn*camPos*(rpm factor[0.55, 1.0])";
 			};
 
 			class ForsageOut {
-				sound[] = {"ca\sounds\Air\AV8\ext\ext-jetair-forsage1", db5, 0.8, 2000};
+				sound[] = {"SU_33_Flanker_D\sounds\ext-jetair-forsage1", db5, 0.8, 2000};
 				frequency = "1";
 				volume = "engineOn*camPos*(thrust factor[0.5, 1.0])";
 				cone[] = {3.0, 3.92, 1.9, 0.5};
 			};
 
 			class WindNoiseOut {
-				sound[] = {"ca\sounds\Air\AV8\ext\ext-jetair-wind1", db-5, 1.0, 150};
+				sound[] = {"A3\Sounds_F\air\Plane_Fighter_03\noise", db-5, 1.0, 150};
 				frequency = "(0.1+(1.2*(speed factor[1, 150])))";
 				volume = "camPos*(speed factor[1, 150])";
 			};
 
 			class EngineLowIn {
-				sound[] = {"ca\sounds\Air\AV8\int\int-av8b-engine-low", db0, 1.0};
+				sound[] = {"SU_33_Flanker_D\sounds\int-av8b-engine-low", db0, 1.0};
 				frequency = "1.0 min (rpm + 0.5)";
 				volume = "(1-camPos)*(engineOn*(rpm factor[0.85, 0]))";
 			};
 
 			class EngineHighIn {
-				sound[] = {"ca\sounds\Air\AV8\int\int-av8b-engine", db0, 1.0};
+				sound[] = {"SU_33_Flanker_D\sounds\int-av8b-engine", db0, 1.0};
 				frequency = "1";
 				volume = "(1-camPos)*(engineOn*(rpm factor[0.55, 1.0]))";
 			};
 
 			class ForsageIn {
-				sound[] = {"ca\sounds\Air\AV8\int\int-av8b-forsage-1", db-10, 1.0};
+				sound[] = {"SU_33_Flanker_D\sounds\int-av8b-forsage-1", db-10, 1.0};
 				frequency = "1";
 				volume = "(1-camPos)*(engineOn*(thrust factor[0.5, 1.0]))";
 			};
 
 			class WindNoiseIn {
-				sound[] = {"ca\sounds\Air\AV8\int\int-jetair-wind1", db-10, 1.0};
+				sound[] = {"A3\Sounds_F\air\Plane_Fighter_03\noise", db-10, 1.0};
 				frequency = "(0.1+(1.2*(speed factor[1, 150])))";
 				volume = "(1-camPos)*(speed factor[1, 150])";
 			};
